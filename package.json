@@ -2,6 +2,20 @@
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.19.1",
+    "nodemon": "^1.19.1",
+    "scripts": "^0.1.0",
+    "server": "^1.0.19",
     "sqlite3": "^4.1.0"
-  }
+  },
+  "scripts": {
+    "server": "nodemon index.js"
+  },
+  "name": "node-db-challenge",
+  "version": "1.0.0",
+  "description": "Sprint Chalelnge",
+  "main": "index.js",
+  "repository": "https://github.com/MorganPeterson1313/node-db-challenge.git",
+  "author": "Lambda School",
+  "license": "MIT",
+  "private": false
 }
