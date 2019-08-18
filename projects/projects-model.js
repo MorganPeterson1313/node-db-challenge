@@ -44,8 +44,13 @@ async function findResources(id) {
 }
 
 async function addResource (resource) {
-    const [id] = await db('resources').insert(resource);
-    return findById(id);
+    // const [id] = await db('resources').insert(resource);
+    // return findById(id);
+    return db('resources')
+    .insert(resource)
+    .then(ids => {
+      return getById(ids[0]);
+    });
 
 }
 
@@ -58,8 +63,15 @@ async function findTasks (id){
     }
 
     async function addTask (task) {
-        const [id] = await db('tasks').insert(task);
-        return findById(id);
+        //  const [id] = await db('tasks').insert(task);
+        //  return findById(id);
+         return db('tasks')
+        .insert(task)
+        // .where({id })
+        // .first();
+        .then(ids => {
+          return findById(ids[0]);
+        });
     
     }
 
