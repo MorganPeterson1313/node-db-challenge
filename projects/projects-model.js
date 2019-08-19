@@ -19,8 +19,11 @@ function find (){
 }
 
 function findById(id){
-    return db('projects')
-            .where({id})
+    return db('projects as p')
+            .join("resources as r", "r.id", "p.project_id")
+             .join("tasks as t","t.id", "p.project_id")
+            .select("t.notes", "t.description", "r.resource_name","r.description", "p.project_name" , "p.description")
+            .where({project_id: id})
             .first();
 
 }
