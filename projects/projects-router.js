@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
   
     try {
       const project = await db.findById(id);
-  
+  console.log(project)
       if (project) {
         res.json(project);
       } else {

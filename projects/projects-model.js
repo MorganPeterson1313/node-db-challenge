@@ -18,14 +18,23 @@ function find (){
     return db('projects');
 }
 
-function findById(id){
-    return db('projects as p')
-            .join("resources as r", "r.id", "p.project_id")
-             .join("tasks as t","t.id", "p.project_id")
-            .select("t.notes", "t.description", "r.resource_name","r.description", "p.project_name" , "p.description")
-            .where({project_id: id})
-            .first();
+ function findById(id){
 
+    return db.select('p.id', 'p.project_name', 'p.description', 't.description', 't.notes','r.resource_name','r.description' )
+                    .from('projects AS p')
+                    .leftJoin('resources AS r' ,  'r.project_id', 'p.id')
+                    .leftJoin('tasks AS t', 't.project_id', 'p.id')
+                    .where('p.id', '=', id)
+                    .first();
+                //  return  db('projects')
+            //     return db('projects as p')
+            //     .where({ id})
+            //     .first()
+            // .join("resources as r", "r.id", "p.project_id")
+        //     //  .join("tasks as t","t.id", "p.project_id")
+        //  .select("t.notes", "t.description", "r.resource_name","r.description", "p.project_name" , "p.description")
+        //  .where({project_id: id})
+        // .first()
 }
 
 async function addProject (project) {
