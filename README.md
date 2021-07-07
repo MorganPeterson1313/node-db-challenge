@@ -40,11 +40,19 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+relational databases is structured to recognize relations among stored items of info
+
 - [ ] Why do tables need a `primary key`?
+
+to uniquely identify the item in the table
 
 - [ ] What is the name given to a table column that references the primary key on another table.
 
+foreign key
+
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
+
+middle table
 
 ## Minimum Viable Product
 
@@ -123,7 +131,6 @@ An `task` one of the steps needed to complete the project. We want to store the 
 This section is **optional** and not counted towards MVP. Start working on it after you're done with the main assignment.
 
 Add an endpoint for retrieving a `project` by its `id` that returns an object with the following structure:
-
 ```js
 {
   id: 1,
